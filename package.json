@@ -1,0 +1,23 @@
+{
+  "name": "nvita",
+  "version": "0.0.1",
+  "description": "NodeJs Environment loader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xelaz/nvita.git"
+  },
+  "keywords": [
+    "node",
+    "env"
+  ],
+  "author": "Xelaz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xelaz/nvita/issues"
+  },
+  "homepage": "https://github.com/xelaz/nvita#readme"
+}
