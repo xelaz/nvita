@@ -1,12 +1,12 @@
-var path = require('path');
-var fs = require('fs');
+const path = require('path');
+const fs = require('fs');
 
 module.exports = (function() {
-  var CWD = process.cwd();
+  const CWD = process.cwd();
 
   function readEnv(envPath) {
-    var envContent = fs.readdirSync(envPath).reduce(function(content, file) {
-      if(file === '.env') {
+    const envContent = fs.readdirSync(envPath).reduce(function(content, file) {
+      if (file === '.env') {
         try {
           content = JSON.parse(fs.readFileSync(envPath + '/' + file));
         } catch(err) {
@@ -30,8 +30,12 @@ module.exports = (function() {
 
   function parseEnv(content) {
     Object.keys(content).forEach(function(key) {
-      Object.keys(content[key]).forEach(function(value) {
-        process[key][value] = content[key][value];
+      if (!process[key]) {
+        process[key] = {};
+      }
+
+      content[key] && Object.keys(content[key]).forEach(function(deepKey) {
+        process[key][deepKey] = content[key][deepKey];
       });
     });
   }
